@@ -68,6 +68,21 @@
   --shadow-opacity: var(--shadow-opacity);
   --color-shadow-color: var(--shadow-color);
   --color-destructive-foreground: var(--destructive-foreground);
+
+  
+  /* Add these max-width extensions */
+  --max-width-8xl: 1400px; /* 1400px */
+  --max-width-9xl: 96rem; /* 1536px */
+  --max-width-10xl: 104rem; /* 1664px */
+
+  /* Add to spacing scale if needed */
+  --spacing-18: 4.5rem;
+  --spacing-20: 5rem;
+  --spacing-24: 6rem;
+  --spacing-28: 7rem;
+  --spacing-32: 8rem;
+  --spacing-36: 9rem;
+  --spacing-40: 10rem;
 }
 
 :root {

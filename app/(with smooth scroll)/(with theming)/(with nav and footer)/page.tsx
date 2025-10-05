@@ -1,10 +1,11 @@
 "use client";
-import CopyComponent from "@/components/starter-kit-ui/CopyComponent";
+
 import { GSAPIcon, LucideIcon, MotionIcon, NextJsIcon, ShadcnIcon, SkiperUIIcon, TailwindCSSIcon, TypescriptIcon } from "@/components/svg-icons";
 import { Badge } from "@/components/ui/badge";
 import { Kbd, KbdGroup } from "@/components/ui/kbd";
 import { Separator } from "@/components/ui/separator";
 import SectionWrapper from "@/components/wrappers/SectionWrapper";
+import CopyComponent from "@/registry/default/starter-kit-ui/copy-component";
 import Link from "next/link";
 
 
@@ -157,10 +158,7 @@ export default function Home() {
               <span className="text-base font-semibold flex flex-col items-center justify-center gap-4"><MotionIcon className="size-12 dark:fill-yellow-400" /> Framer Motion</span>
               <span className="text-base font-semibold flex flex-col items-center justify-center gap-4"><SkiperUIIcon className="size-12 dark:fill-white" /> Skiper UI</span>
               <span className="text-base font-semibold flex flex-col items-center justify-center gap-4"><GSAPIcon className="size-12  fill-green-400" /> GSAP</span>
-              {/* <span className="text-base font-semibold flex flex-col items-center justify-center gap-4"> Lenis</span> */}
               <span className="text-base font-semibold flex flex-col items-center justify-center gap-4"><LucideIcon className="size-12 dark:fill-white" /> Lucide Icons</span>
-              {/* <span className="text-base font-semibold flex flex-col items-center justify-center gap-4"> React Icons</span> */}
-              {/* <span className="text-base font-semibold flex flex-col items-center justify-center gap-4"> And More...</span> */}
             </div>
             <div id="actions" className="flex items-center gap-4 pointer-events-auto">
               <Link href="/docs/getting-started" className="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/80 transition">Get Started</Link>
@@ -170,7 +168,7 @@ export default function Home() {
           </div>
           <div className="flex flex-col items-start justify-start py-10 gap-4 h-full">
             {/* Using the reusable CopyComponent */}
-              <CopyComponent
+            <CopyComponent
               code={componentCode}
               fileName={DUMMY_COMPONENT.name}
               language="typescript"

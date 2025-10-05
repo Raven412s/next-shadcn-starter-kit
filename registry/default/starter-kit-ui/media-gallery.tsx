@@ -1,15 +1,14 @@
 "use client";
 
 
-import Image from "next/image";
-import { useState } from "react";
-import { Copy, Eye, Image as ImageIcon, Trash2 } from "lucide-react";
-import { toast } from "sonner";
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-
-import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "../ui/alert-dialog";
-import ImageUploadMultiple from "./ImageUploadMultiple";
+import { Copy, Eye, Image as ImageIcon, Trash2 } from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
+import { toast } from "sonner";
+import ImageUploadMultiple from "./image-upload-multiple";
 
 
 
@@ -44,7 +43,7 @@ export default function MediaGallery({
 }: Props) {
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [imageToDelete, setImageToDelete] = useState<string>("");
-
+  
 
   return (
     <div>
@@ -57,6 +56,7 @@ export default function MediaGallery({
         }}
       />
 
+ 
 
       {isLoading ? (
         <div className="flex items-center justify-center h-64">

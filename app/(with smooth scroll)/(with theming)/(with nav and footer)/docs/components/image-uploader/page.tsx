@@ -4,10 +4,10 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { toast } from "sonner";
-import CopyComponent from "@/components/starter-kit-ui/CopyComponent";
-import ImageUploadMultiple from "@/components/starter-kit-ui/ImageUploadMultiple";
-import ImageUploadSingle from "@/components/starter-kit-ui/ImageUploadSingle";
-import MediaGallery from "@/components/starter-kit-ui/MediaGallery";
+import CopyComponent from "@/registry/default/starter-kit-ui/copy-component";
+import ImageUploadMultiple from "@/registry/default/starter-kit-ui/image-upload-multiple";
+import ImageUploadSingle from "@/registry/default/starter-kit-ui/image-upload-single";
+import MediaGallery from "@/registry/default/starter-kit-ui/media-gallery";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface CloudinaryImage {

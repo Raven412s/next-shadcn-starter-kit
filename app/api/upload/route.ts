@@ -1,4 +1,4 @@
-// app/api/admin/upload/route.ts
+// app/api/upload/route.ts
 import { v2 as cloudinary } from "cloudinary";
 import { NextResponse } from "next/server";
 
@@ -11,39 +11,114 @@ cloudinary.config({
 export async function POST(req: Request) {
   try {
     const formData = await req.formData();
-
-    // files[] या file — दोनों सपोर्ट
-    const files = (formData.getAll("files").length
-      ? formData.getAll("files")
-      : [formData.get("file")]
-    ).filter(Boolean) as File[];
-
-    if (!files.length) {
-      return NextResponse.json({ error: "No files received" }, { status: 400 });
+    
+    // Check if it's single file or multiple files
+    const singleFile = formData.get("file") as File;
+    const multipleFiles = formData.getAll("files") as File[];
+    
+    let filesToUpload: File[] = [];
+    
+    if (multipleFiles.length > 0 && multipleFiles[0] instanceof File) {
+      // Multiple files upload
+      filesToUpload = multipleFiles.filter(file => file instanceof File);
+    } else if (singleFile instanceof File) {
+      // Single file upload
+      filesToUpload = [singleFile];
+    } else {
+      return NextResponse.json({ error: "No valid files received" }, { status: 400 });
     }
 
-    const uploads = await Promise.all(
-      files.map(async (file) => {
+    if (filesToUpload.length === 0) {
+      return NextResponse.json({ error: "No files to upload" }, { status: 400 });
+    }
+
+    // Old image URL for cleanup (single file case)
+    const oldImageUrl = formData.get("oldImageUrl") as string;
+
+    // Upload all files to Cloudinary
+    const uploadResults = await Promise.all(
+      filesToUpload.map(async (file) => {
         const bytes = await file.arrayBuffer();
         const buffer = Buffer.from(bytes);
         const base64 = buffer.toString("base64");
         const dataUri = `data:${file.type};base64,${base64}`;
 
-        // Cloudinary upload
         const result = await cloudinary.uploader.upload(dataUri, {
           folder: "uploads",
           resource_type: "auto"
         });
 
-        return result;
+        return {
+          url: result.secure_url,
+          publicId: result.public_id,
+          originalFilename: file.name,
+          size: file.size
+        };
       })
     );
 
-    return NextResponse.json({ uploads });
+    // Cleanup old image if provided (for single file updates)
+    if (oldImageUrl && oldImageUrl.includes("cloudinary.com")) {
+      try {
+        const publicId = oldImageUrl.split('/').pop()?.split('.')[0];
+        if (publicId) {
+          await cloudinary.uploader.destroy(publicId);
+        }
+      } catch (cleanupError) {
+        console.error("Error cleaning up old image:", cleanupError);
+        // Don't fail the upload if cleanup fails
+      }
+    }
+
+    // Return response based on upload type
+    if (filesToUpload.length === 1) {
+      // Single file - return { url } for backward compatibility
+      return NextResponse.json({ 
+        url: uploadResults[0].url 
+      });
+    } else {
+      // Multiple files - return { uploads: [...] }
+      return NextResponse.json({ 
+        uploads: uploadResults 
+      });
+    }
+
   } catch (error) {
     console.error("Error uploading image(s):", error);
     return NextResponse.json(
       { error: "Failed to upload image(s)" },
+      { status: 500 }
+    );
+  }
+}
+
+// DELETE endpoint (same as before)
+export async function DELETE(req: Request) {
+  try {
+    const { imageUrl } = await req.json();
+
+    if (!imageUrl || !imageUrl.includes("cloudinary.com")) {
+      return NextResponse.json({ error: "Invalid image URL" }, { status: 400 });
+    }
+
+    // Extract public ID from Cloudinary URL
+    const publicId = imageUrl.split('/').pop()?.split('.')[0];
+    
+    if (!publicId) {
+      return NextResponse.json({ error: "Invalid Cloudinary URL" }, { status: 400 });
+    }
+
+    const result = await cloudinary.uploader.destroy(publicId);
+
+    if (result.result === "ok") {
+      return NextResponse.json({ success: true });
+    } else {
+      return NextResponse.json({ error: "Failed to delete image" }, { status: 500 });
+    }
+  } catch (error) {
+    console.error("Error deleting image:", error);
+    return NextResponse.json(
+      { error: "Failed to delete image" },
       { status: 500 }
     );
   }

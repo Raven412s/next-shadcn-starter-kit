@@ -1,7 +1,7 @@
 "use client";
 
-import CopyComponent from "@/components/starter-kit-ui/CopyComponent";
-import MapsEmbedder from "@/components/starter-kit-ui/MapsEmbedder";
+import CopyComponent from "@/registry/default/starter-kit-ui/copy-component";
+import MapsEmbedder from "@/registry/default/starter-kit-ui/maps-embedder";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const MapsEmbedderPage = () => {

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "starter-kit-ui",
+  "homepage": "https://starter-kit-nu-two.vercel.app",
+  "items": [
+    {
+      "name": "image-input",
+      "type": "registry:component",
+      "title": "Image Input",
+      "description": "Image Input component with preview and clear functionality.",
+      "dependencies": [
+        "sonner",
+        "react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "input",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry//default/starter-kit-ui/image-input.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}

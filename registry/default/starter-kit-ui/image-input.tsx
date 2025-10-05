@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/complexity/useOptionalChain: explanation */
 "use client";
 
 import { Image as ImageIcon, LoaderCircle, Upload, X } from "lucide-react";

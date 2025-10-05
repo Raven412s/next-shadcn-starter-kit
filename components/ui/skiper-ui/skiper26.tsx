@@ -6,7 +6,7 @@ import { useTheme } from "next-themes";
 import { useCallback, useEffect, useState } from "react";
 
 import { cn } from "@/lib/utils";
-import { ThemeToggleButton } from "./ThemeToggleButton";
+import { ThemeToggleButton } from "../../buttons/ThemeToggleButton";
 
 const Skiper26 = () => {
   const [variant, setVariant] = useState<AnimationVariant>("rectangle");

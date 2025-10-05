@@ -1,8 +1,9 @@
+/** biome-ignore-all lint/a11y/noSvgWithoutTitle: explanation */
 "use client"
-import { cn } from "@/lib/utils";
 import { motion as m } from "framer-motion";
-import { AnimationStart, AnimationVariant, useThemeToggle } from "./skiper26";
-import { Button } from "../button";
+import { cn } from "@/lib/utils";
+import { Button } from "../ui/button";
+import { type AnimationStart, type AnimationVariant, useThemeToggle } from "../ui/skiper-ui/skiper26";
 
 
 

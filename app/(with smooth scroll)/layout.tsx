@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { ReactLenis } from "lenis/react";
-import { ThemeProvider } from "@/components/providers/theme-provider";
+import { Lexend, Nunito, Poppins } from "next/font/google";
 import "../globals.css";
-import { Poppins, Lexend, Nunito } from "next/font/google";
+import Provider from "@/components/providers/Provider";
 
 export const poppins = Poppins({ subsets: ["latin"], variable: "--font-sans", weight: ["400","500","600","700","800","900"] });
 export const lexend = Lexend({ subsets: ["latin"], variable: "--font-sans-2", weight: ["400","500","600","700","800","900"] });
@@ -26,14 +25,7 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${poppins.variable} ${lexend.variable} ${nunito.variable}`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <ReactLenis root>{children}</ReactLenis>
-        </ThemeProvider>
+        <Provider>{children}</Provider>
       </body>
     </html>
   );

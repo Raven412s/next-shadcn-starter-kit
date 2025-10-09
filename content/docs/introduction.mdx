@@ -1,0 +1,85 @@
+---
+title: "Introduction"
+description: "Get started with Starter Kit - A collection of beautifully designed components and templates for Next.js"
+---
+
+# Welcome to Starter Kit
+
+Build modern web applications faster with our carefully crafted collection of reusable components, templates, and utilities designed specifically for Next.js.
+
+## What is Starter Kit?
+
+Starter Kit is a comprehensive collection of production-ready components that help you ship projects faster. Each component is:
+
+- **🚀 Production Ready** - Battle-tested and optimized for real-world use
+- **🎨 Beautiful by Default** - Thoughtful design with attention to detail
+- **♿ Accessible** - Built with accessibility as a priority
+- **🔧 Customizable** - Easy to customize and extend
+- **📱 Responsive** - Works perfectly on all devices
+
+## Quick Start
+
+### Installation
+
+Add components to your project using our CLI:
+
+```bash
+npx shadcn@latest add https://starter-kit-nu-two.vercel.app/r/component-name.json
+```
+
+## Example
+
+```tsx title="image-input.tsx"
+import { ImageInput } from "@/components/starter-kit-ui/image-input";
+
+export default function ProfilePage() {
+  const [avatar, setAvatar] = useState("");
+  
+  return (
+    <div>
+      <ImageInput
+        value={avatar}
+        onChange={setAvatar}
+        name="profile-picture"
+      />
+    </div>
+  );
+}
+```
+
+## What's Included
+
+### 🎯 UI Components
+
+- Image Input - Cloudinary-powered image upload with preview
+
+- Maps Embedder - Easy Google Maps integration
+
+- More coming soon...
+
+### 🛠️ API Routes
+- Upload API - Cloudinary image upload with automatic cleanup and multiple file support
+- Images API - Media management and organization
+- More coming soon...
+
+### 🛠 Utilities
+
+- Pre-configured Cloudinary integration
+- TypeScript support
+- Comprehensive documentation
+
+## Why Choose Starter Kit?
+
+- **Save Time** - Focus on building features, not reinventing the wheel
+- **Consistent Design** - Maintain a cohesive look and feel across your applications
+- **Community Driven** - Open-source and continuously improved by the community
+- **Easy to Use** - Simple APIs and clear documentation
+- **Regular Updates** - New components and features added regularly
+
+Start building with Starter Kit today and take your Next.js projects to the next level!
+
+<ComponentsGrid />
+
+---
+
+Built with ❤️ for the Next.js community

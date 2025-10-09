@@ -1,0 +1,117 @@
+---
+title: "Getting Started"
+description: "Learn how to set up and use Starter Kit in your Next.js project"
+---
+
+# Getting Started
+
+Welcome to Starter Kit! This guide will help you set up and start using our collection of components in your Next.js project.
+
+## Prerequisites
+
+Before you begin, make sure you have:
+
+- **Node.js** 18.17 or later installed
+- **Next.js** 15+ project set up
+- Basic knowledge of **React** and **TypeScript**
+
+## Installation
+
+### 1. Set up a new Next.js project (if you don't have one)
+
+```bash
+npx create-next-app@latest my-app --typescript --tailwind --eslint --app
+cd my-app
+```
+
+### 2. Configure Your project
+Make sure your `components.json` is properly set up:
+
+```json
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "default",
+  "rsc": true,
+  "tsx": true,
+  "tailwind": {
+    "config": "tailwind.config.ts",
+    "css": "app/globals.css",
+    "baseColor": "slate",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils",
+    "ui": "@/components/ui",
+  }
+}
+```
+
+### 3. Install required dependencies
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+<Tab>
+```bash
+npm install cloudinary sonner lucide-react
+```
+</Tab>
+<Tab> 
+```bash 
+pnpm add cloudinary sonner lucide-react 
+``` 
+</Tab> 
+<Tab> 
+```bash
+ yarn add cloudinary sonner lucide-react 
+ ``` 
+</Tab> 
+<Tab> 
+```bash
+ bun add cloudinary sonner lucide-react 
+ ``` 
+</Tab> 
+</Tabs>
+
+### 4. Add Starter Kit components
+Install components using our CLI:
+```bash
+npx shadcn@latest add https://starter-kit-nu-two.vercel.app/r/component-name.json
+``` 
+Replace `component-name` with the desired component name from the [Components](./components) page.
+
+## Environment Setup
+
+Some components require environment variables to function properly. For example, to use the image upload components, you'll need to set up Cloudinary:
+1. Create a `.env.local` file in the root of your project.
+2. Add your Cloudinary credentials:
+   ```
+   CLOUDINARY_CLOUD_NAME=your_cloud_name
+   CLOUDINARY_API_KEY=your_api_key
+   CLOUDINARY_API_SECRET=your_api_secret
+   ```
+3. Restart your development server to apply the changes.
+
+## Usage
+Import and use the components in your pages or other components. For example, to use the Image Input component:
+
+```tsx title="app/page.tsx"
+import { ImageInput } from "@/components/starter-kit-ui/image-input";
+import { useState } from "react";
+export default function HomePage() {
+  const [avatar, setAvatar] = useState("");
+  
+  return (
+    <div>
+      <ImageInput
+        value={avatar}
+        onChange={setAvatar}
+        name="profile-picture"
+      />
+    </div>
+  );
+}
+```
+## Documentation
+Detailed documentation for each component can be found on the [Components](./components) page. Each component page includes installation instructions, usage examples, and customization options.
+## Support
+If you encounter any issues or have questions, feel free to open an issue on our [GitHub repository]( https://github.com/Raven412s/next-shadcn-starter-kit) or DM Raven412s at [Instagram](https://www.instagram.com/ravenwebweaver/?hl=en).

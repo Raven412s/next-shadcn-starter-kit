@@ -1,8 +1,8 @@
 import type React from "react";
-import LenisProvider from "./lenis-provider";
 import { ThemeProvider } from "./theme-provider";
 
-const Provider = ({children}:{children: React.ReactNode}) => {
+
+const Provider = ({ children }: { children: React.ReactNode }) => {
     return (
         <ThemeProvider
             attribute="class"
@@ -10,8 +10,7 @@ const Provider = ({children}:{children: React.ReactNode}) => {
             enableSystem
             disableTransitionOnChange
         >
-            <LenisProvider>{children}</LenisProvider>
-            {/* <ReactLenis root></ReactLenis> */}
+            {children}
         </ThemeProvider>
     )
 }

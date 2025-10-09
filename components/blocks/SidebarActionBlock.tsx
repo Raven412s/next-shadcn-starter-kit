@@ -1,12 +1,12 @@
 import GithubContributionButton from "../buttons/GithubContributionButton"
 import { ThemeToggleButton } from "../buttons/ThemeToggleButton"
 
-const NavbarActionBlock = ({onDocs}:{onDocs?:boolean}) => {
+const SidebarActionBlock = () => {
     return (
-        <div className="flex items-center py-0 gap-4 ">
-            <GithubContributionButton onSidebar={onDocs} />
+        <div className="flex items-center gap-4 justify-end ">
+            <GithubContributionButton onSidebar />
             <ThemeToggleButton
-                onSidebar={onDocs}
+                onSidebar
                 variant="rectangle"
                 start="bottom-up"
             />
@@ -14,4 +14,4 @@ const NavbarActionBlock = ({onDocs}:{onDocs?:boolean}) => {
     )
 }
 
-export default NavbarActionBlock
+export default SidebarActionBlock

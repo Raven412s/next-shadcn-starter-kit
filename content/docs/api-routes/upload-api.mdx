@@ -1,0 +1,80 @@
+---
+title: Upload API
+description: Uploads your images directly to the cloudinary database.
+---
+
+
+
+# Installation
+
+### CLI
+
+<Tabs items={['npm','pnpm', 'yarn', 'bun']}>
+    <Tab>
+    ```bash
+    npx shadcn@latest add https://starter-kit-nu-two.vercel.app/r/upload-api.json
+    ```
+    </Tab>
+
+    <Tab>
+    ```bash
+    pnpm dlx shadcn@latest add https://starter-kit-nu-two.vercel.app/r/upload-api.json
+    ```
+    </Tab>
+
+    <Tab>
+    ```bash
+    yarn dlx shadcn@latest add https://starter-kit-nu-two.vercel.app/r/upload-api.json
+    ```
+    </Tab>
+
+    <Tab>
+    ```bash
+    bunx shadcn@latest add https://starter-kit-nu-two.vercel.app/r/upload-api.json
+    ```
+    </Tab>
+</Tabs>
+
+### Manual
+
+<Steps>
+
+<Step>
+1. Install the required dependencies:
+
+<Tabs items={['npm','pnpm', 'yarn', 'bun']}>
+    <Tab>
+    ```bash
+    npm install cloudinary
+    ```
+    </Tab>
+
+    <Tab>
+    ```bash
+    pnpm add cloudinary
+    ```
+    </Tab>
+
+    <Tab>
+    ```bash
+    yarn add cloudinary
+    ```
+    </Tab>
+
+    <Tab>
+    ```bash
+    bun add cloudinary
+    ```
+    </Tab>
+</Tabs>
+</Step>
+
+<Step>
+
+2. Add the route.ts into *app/api/upload/* folder.
+
+<ComponentSource name="upload-api" showAllFiles={false} />
+</Step>
+
+
+</Steps>

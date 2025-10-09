@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Lexend, Nunito, Poppins } from "next/font/google";
-import "../globals.css";
 import Provider from "@/components/providers/Provider";
+import "../globals.css";
 
 export const poppins = Poppins({ subsets: ["latin"], variable: "--font-sans", weight: ["400","500","600","700","800","900"] });
 export const lexend = Lexend({ subsets: ["latin"], variable: "--font-sans-2", weight: ["400","500","600","700","800","900"] });
@@ -25,7 +25,7 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${poppins.variable} ${lexend.variable} ${nunito.variable}`}
       >
-        <Provider>{children}</Provider>
+          <Provider>{children}</Provider>
       </body>
     </html>
   );

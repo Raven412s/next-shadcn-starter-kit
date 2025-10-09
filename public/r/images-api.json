@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "images-api",
+  "type": "registry:lib",
+  "title": "Images API",
+  "description": "Cloudinary images API routes",
+  "dependencies": [
+    "cloudinary"
+  ],
+  "files": [
+    {
+      "path": "registry/.././app/api/images/route.ts",
+      "content": "// app/api/admin/images/route.ts\r\nimport { v2 as cloudinary } from \"cloudinary\";\r\nimport { NextResponse } from \"next/server\";\r\n\r\ncloudinary.config({\r\n  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,\r\n  api_key: process.env.CLOUDINARY_API_KEY,\r\n  api_secret: process.env.CLOUDINARY_API_SECRET,\r\n});\r\n\r\nexport async function GET() {\r\n  try {\r\n    const [images, videos] = await Promise.all([\r\n      cloudinary.api.resources({\r\n        type: \"upload\",\r\n        resource_type: \"image\",\r\n        max_results: 500,\r\n      }),\r\n      cloudinary.api.resources({\r\n        type: \"upload\",\r\n        resource_type: \"video\",\r\n        max_results: 500,\r\n      }),\r\n    ]);\r\n\r\n    // merge both\r\n    const resources = [...images.resources, ...videos.resources];\r\n\r\n    return NextResponse.json({ images: resources });\r\n  } catch (error) {\r\n    console.error(\"Error fetching media:\", error);\r\n    return NextResponse.json(\r\n      { error: \"Failed to fetch media\" },\r\n      { status: 500 }\r\n    );\r\n  }\r\n}\r\n\r\n// app/api/admin/images/route.ts\r\nexport async function DELETE(req: Request) {\r\n  try {\r\n    const { publicId } = await req.json();\r\n\r\n    const result = await cloudinary.uploader.destroy(publicId);\r\n\r\n    return NextResponse.json(result);\r\n  } catch (error) {\r\n    console.error(\"Error deleting image:\", error);\r\n    return NextResponse.json(\r\n      { error: \"Failed to delete image\" },\r\n      { status: 500 },\r\n    );\r\n  }\r\n}\r\n",
+      "type": "registry:lib"
+    }
+  ]
+}

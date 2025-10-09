@@ -1,8 +1,11 @@
-import type {Registry} from "shadcn/registry"
-import { ui } from "./registry-ui"
+// registry/index.ts
 
-export const registry = {
-    name: "starter-kit-ui",
-    homepage: "https://starter-kit-nu-two.vercel.app",
-    items: [...ui]
-} satisfies Registry
+import type {Registry} from "shadcn/registry"
+import { api } from "./registry-api";
+import { ui } from "./registry-ui";
+
+export const registry: Registry = {
+  name: "starter-kit",
+  homepage: "https://starter-kit-nu-two.vercel.app",
+  items: [...ui, ...api],
+} satisfies Registry;

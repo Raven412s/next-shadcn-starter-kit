@@ -12,12 +12,14 @@ export const ThemeToggleButton = ({
     variant = "circle",
     start = "center",
     blur = false,
+    onSidebar = false,
     gifUrl = "",
 }: {
     className?: string;
     variant?: AnimationVariant;
     start?: AnimationStart;
     blur?: boolean;
+    onSidebar?: boolean;
     gifUrl?: string;
 }) => {
     const { isDark, toggleTheme } = useThemeToggle({
@@ -48,10 +50,12 @@ export const ThemeToggleButton = ({
     };
     return (
         <Button
+            size={"icon-sm"}
             type="button"
             variant={"outline"}
             className={cn(
-                "size-10 cursor-pointer rounded-full border p-0 transition-all duration-300 active:scale-95",
+                "cursor-pointer rounded-full border p-0 transition-all duration-300 active:scale-95",
+                onSidebar ? "" : "size-10",
                 className,
             )}
             onClick={toggleTheme}

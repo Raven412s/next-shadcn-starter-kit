@@ -46,7 +46,7 @@ export const ui: Registry["items"] = [
     description:
       "Single Image Upload component with preview and clear functionality.",
     dependencies: ["react", "cloudinary", "sonner", "lucide-react"],
-    registryDependencies: ["card", "button", "image-input"],
+    registryDependencies: ["card", "button"],
     files: [
       {
         path: "/default/starter-kit-ui/image-upload-single.tsx",
@@ -69,7 +69,7 @@ export const ui: Registry["items"] = [
     description:
       "Multiple Image Upload component with preview and clear functionality & Queues.",
     dependencies: ["react", "cloudinary", "sonner", "lucide-react"],
-    registryDependencies: ["card", "button", "image-input"],
+    registryDependencies: ["card", "button"],
     files: [
       {
         path: "/default/starter-kit-ui/image-upload-multiple.tsx",

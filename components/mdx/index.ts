@@ -9,6 +9,7 @@ import  ImageUploadMultiple  from "@/registry/default/starter-kit-ui/image-uploa
 import  ImageUploadSingle  from "@/registry/default/starter-kit-ui/image-upload-single"
 import  MapsEmbedder  from "@/registry/default/starter-kit-ui/maps-embedder"
 import ComponentPreview from "./component-preview"
+import MultiSelect from "@/registry/default/starter-kit-ui/multi-select"
 
 
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
@@ -20,6 +21,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
         MapsEmbedder,
         ImageUploadSingle,
         ImageUploadMultiple,
+        MultiSelect,
         ComponentsGrid,
         Tabs,
         Tab,

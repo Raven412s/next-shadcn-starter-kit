@@ -85,4 +85,18 @@ export const ui: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "multi-select",
+    type: "registry:component",
+    title: "Multi Select",
+    description: "A customizable multi-select dropdown component.",
+    dependencies: ["react", "lucide-react", "@/lib/utils"],
+    registryDependencies: ["button", "input", "dropdown-menu", "badge"],
+    files: [
+      {
+        path: "/default/starter-kit-ui/multi-select.tsx",
+        type: "registry:component",
+      },
+    ],
+  },
 ];

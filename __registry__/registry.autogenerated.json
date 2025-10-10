@@ -112,6 +112,29 @@
       ]
     },
     {
+      "name": "multi-select",
+      "type": "registry:component",
+      "title": "Multi Select",
+      "description": "A customizable multi-select dropdown component.",
+      "dependencies": [
+        "react",
+        "lucide-react",
+        "@/lib/utils"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "dropdown-menu",
+        "badge"
+      ],
+      "files": [
+        {
+          "path": "registry//default/starter-kit-ui/multi-select.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "upload-api",
       "type": "registry:lib",
       "title": "Upload API",

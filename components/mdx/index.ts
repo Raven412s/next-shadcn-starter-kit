@@ -8,12 +8,14 @@ import { ImageInput } from "@/registry/default/starter-kit-ui/image-input"
 import  ImageUploadMultiple  from "@/registry/default/starter-kit-ui/image-upload-multiple"
 import  ImageUploadSingle  from "@/registry/default/starter-kit-ui/image-upload-single"
 import  MapsEmbedder  from "@/registry/default/starter-kit-ui/maps-embedder"
+import ComponentPreview from "./component-preview"
 
 
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
     return { 
         ...DefaultMDXComponents,
         ComponentSource,
+        ComponentPreview,
         ImageInput,
         MapsEmbedder,
         ImageUploadSingle,

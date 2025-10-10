@@ -28,7 +28,7 @@ const DocsPageLayout = ({children}:{children: React.ReactNode}) => {
             }}
         >
             <main className='relative w-full min-h-screen'>
-            <Navbar className='w-[84.7%] right-0' />
+            <Navbar className='lg:w-[84.7%] right-0' />
             {children}
             </main>
         </DocsLayout>

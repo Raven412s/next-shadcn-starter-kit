@@ -216,3 +216,12 @@
   #nd-toc {
    margin-top: 40px;
   }
+
+  .scrollbar-hide{
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }

@@ -123,7 +123,8 @@ const MultiSelect = ({
                         ref={triggerRef}
                         className={cn(
                             "relative cursor-pointer rounded-md border border-input bg-background transition-colors",
-                            "focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2",
+                            "focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 overflow-hidden",
+                            "rounded-full",
                             sizeClasses[size],
                             variantClasses[variant],
                             "w-full" // Ensure full width
@@ -131,7 +132,11 @@ const MultiSelect = ({
                     >
                         <Input
                             readOnly
-                            placeholder={placeholder}
+                            placeholder={
+                                selectedOptions.length === 0 ? placeholder : ""
+                            }
+                            onClick={() => setOpen(!open)
+                            }
                             className={cn(
                                 "h-full border-0 focus-visible:ring-0 focus-visible:ring-offset-0",
                                 "placeholder:text-muted-foreground text-foreground cursor-pointer pr-10",
@@ -150,30 +155,30 @@ const MultiSelect = ({
                         {/* Selected options as badges */}
                         {selectedOptions.length > 0 && (
                             <div className={cn(
-                                "absolute left-3 top-1/2 transform -translate-y-1/2 flex gap-1 overflow-hidden",
+                                "absolute left-3 top-1/2 transform -translate-y-1/2 flex gap-1 overflow-y-hidden overflow-x-auto w-full scrollbar-hide",
                                 {
-                                    "max-w-[75%]": size === "sm",
-                                    "max-w-[80%]": size === "default",
-                                    "max-w-[85%]": size === "lg",
+                                    "max-w-[88%]": size === "lg",
+                                    "max-w-[89%]": size === "default",
+                                    "max-w-[90%]": size === "sm",
                                 }
-                            )}>
+                            )}
+                            >
                                 {selectedOptions.map((option) => (
                                     <Badge
                                         key={option}
                                         variant="default"
                                         className={cn(
-                                            "flex items-center gap-1 pr-1 max-w-[120px] truncate",
+                                            "flex items-center gap-1 pr-1 max-w-max truncate rounded-full mr-0.5",
                                             badgeSizeClasses[size]
                                         )}
                                     >
                                         <span className="truncate">{option}</span>
                                         <Button
-                                            size="icon-sm"
+                                            size="icon-xs"
                                             onClick={(e) => removeOption(option, e)}
                                             onMouseOver={()=>setDisableTrigger(true)}
                                             onMouseLeave={()=>setDisableTrigger(false)}
                                             className={cn(
-                                                "hover:bg-accent rounded-full transition-colors",
                                                 {
                                                     "p-0.5": size === "sm",
                                                     "p-1": size === "default" || size === "lg",

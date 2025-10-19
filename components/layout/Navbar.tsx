@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import NavbarActionBlock from "../blocks/NavbarActionBlock";
 import { buttonVariants } from "../ui/button";
 import { usePathname } from "next/navigation";
+import Logo from "../svg-icons/Logo";
 
 /**
  * Responsive Navbar
@@ -42,7 +43,9 @@ const Navbar = ({ className }: { className?: string; }) => {
         )}
       >
         <div id={"logo"} className="flex items-center gap-8">
-          <AiTwotoneBuild color={`var(--color-primary)`} floodColor={`var(--color-primary)`} fill={`var(--color-primary)`} className="size-12 " />
+          <Logo 
+          className="size-10"
+          />
           <span className="hidden lg:block font-bold text-lg w-max">Starter Kit</span>
         </div>
 
@@ -63,7 +66,6 @@ const Navbar = ({ className }: { className?: string; }) => {
         {!onDocs && (
           <div className="flex md:hidden items-center w-full justify-between px-3">
             <div className="flex items-center gap-3">
-              <AiTwotoneBuild color={`var(--color-primary)`} className="size-8" />
               <span className="font-semibold text-sm">Starter Kit</span>
             </div>
 
@@ -112,7 +114,9 @@ const Navbar = ({ className }: { className?: string; }) => {
           >
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-3">
-                <AiTwotoneBuild color={`var(--color-primary)`} className="size-8" />
+                <Logo 
+                className="size-10"
+                />
                 <span className="font-semibold">Starter Kit</span>
               </div>
               <button type="button" onClick={() => setOpen(false)} aria-label="Close menu" className="p-2 rounded-md">

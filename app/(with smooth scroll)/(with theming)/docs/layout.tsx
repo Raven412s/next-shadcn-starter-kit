@@ -5,6 +5,7 @@ import type React from 'react'
 import SidebarActionBlock from '@/components/blocks/SidebarActionBlock'
 import Navbar from '@/components/layout/Navbar'
 import { source } from '@/lib/source'
+import Logo from '@/components/svg-icons/Logo'
 
 const DocsPageLayout = ({children}:{children: React.ReactNode}) => {
     return (
@@ -20,7 +21,12 @@ const DocsPageLayout = ({children}:{children: React.ReactNode}) => {
             }}
 
             nav={{
-                title: <p className='text-2xl font-semibold text-sidebar-primary'>Starter Kit</p>,
+                title: <div className="flex items-center justify-center gap-2">
+                    <Logo
+                    className='size-8'
+                    />
+                     <p className='text-2xl font-semibold text-sidebar-primary'>Starter Kit</p>
+                </div>
             }}
 
             searchToggle={{

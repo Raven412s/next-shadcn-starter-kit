@@ -1,16 +1,15 @@
-/** biome-ignore-all lint/a11y/noStaticElementInteractions: <explanation> */
-/** biome-ignore-all lint/a11y/useKeyWithClickEvents: <explanation> */
+/** biome-ignore-all lint/a11y/noStaticElementInteractions: explanation */
+/** biome-ignore-all lint/a11y/useKeyWithClickEvents: explanation */
 "use client";
 
-import React, { useState } from "react";
 import Link from "next/link";
-import { AiTwotoneBuild } from "react-icons/ai";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 import { cn } from "@/lib/utils";
 import NavbarActionBlock from "../blocks/NavbarActionBlock";
+import { Logo, LogoDark } from "../svg-icons/Logo";
 import { buttonVariants } from "../ui/button";
-import { usePathname } from "next/navigation";
-import Logo from "../svg-icons/Logo";
 
 /**
  * Responsive Navbar
@@ -25,8 +24,8 @@ const LINKS = [
 ];
 
 const Navbar = ({ className }: { className?: string; }) => {
-    const pathname = usePathname();
-    const onDocs = pathname.includes("/docs");
+  const pathname = usePathname();
+  const onDocs = pathname.includes("/docs");
   const [open, setOpen] = useState(false);
 
   // If on docs and we're on small screens we want to hide the header completely.
@@ -43,8 +42,11 @@ const Navbar = ({ className }: { className?: string; }) => {
         )}
       >
         <div id={"logo"} className="flex items-center gap-8">
-          <Logo 
-          className="size-10"
+          <Logo
+            className="block dark:hidden size-10"
+          />
+          <LogoDark
+            className="hidden dark:block size-10"
           />
           <span className="hidden lg:block font-bold text-lg w-max">Starter Kit</span>
         </div>
@@ -70,7 +72,7 @@ const Navbar = ({ className }: { className?: string; }) => {
             </div>
 
             <div className="flex items-center gap-2">
-              {/* Action block remains visible on mobile */}
+              {/* Action block remains block on mobile */}
               <NavbarActionBlock onDocs={onDocs} />
 
               {/* Menu trigger for sheet */}
@@ -114,9 +116,13 @@ const Navbar = ({ className }: { className?: string; }) => {
           >
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-3">
-                <Logo 
-                className="size-10"
+                <Logo
+                  className="block dark:hidden size-10"
                 />
+                <LogoDark
+                  className="hidden dark:block size-10"
+                />
+
                 <span className="font-semibold">Starter Kit</span>
               </div>
               <button type="button" onClick={() => setOpen(false)} aria-label="Close menu" className="p-2 rounded-md">

@@ -5,27 +5,30 @@ import type React from 'react'
 import SidebarActionBlock from '@/components/blocks/SidebarActionBlock'
 import Navbar from '@/components/layout/Navbar'
 import { source } from '@/lib/source'
-import Logo from '@/components/svg-icons/Logo'
+import { Logo, LogoDark } from '@/components/svg-icons/Logo'
 
-const DocsPageLayout = ({children}:{children: React.ReactNode}) => {
+const DocsPageLayout = ({ children }: { children: React.ReactNode }) => {
     return (
         <DocsLayout tree={source.pageTree}
             themeSwitch={{
-                enabled:false
+                enabled: false
             }}
 
             sidebar={{
-                footer: <SidebarActionBlock/>,
+                footer: <SidebarActionBlock />,
                 className: "bg-sidebar muted-scrollbar",
-                collapsible:false
+                collapsible: false
             }}
 
             nav={{
                 title: <div className="flex items-center justify-center gap-2">
                     <Logo
-                    className='size-8'
+                        className="block dark:hidden size-8"
                     />
-                     <p className='text-2xl font-semibold text-sidebar-primary'>Starter Kit</p>
+                    <LogoDark
+                        className="hidden dark:block size-8"
+                    />
+                    <p className='text-2xl font-semibold text-sidebar-primary'>Starter Kit</p>
                 </div>
             }}
 
@@ -34,8 +37,8 @@ const DocsPageLayout = ({children}:{children: React.ReactNode}) => {
             }}
         >
             <main className='relative w-full min-h-screen'>
-            <Navbar className='lg:w-[84.7%] right-0' />
-            {children}
+                <Navbar className='lg:w-[84.7%] right-0' />
+                {children}
             </main>
         </DocsLayout>
     )

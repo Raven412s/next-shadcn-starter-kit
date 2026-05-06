@@ -4,15 +4,16 @@ import type { Registry } from "shadcn/registry";
 
 export const ui: Registry["items"] = [
   {
-    name: "image-input",
+    name: "image-upload",
     type: "registry:component",
-    title: "Image Input",
-    description: "Image Input component with preview and clear functionality.",
+    title: "Image Upload",
+    description:
+      "Unified image upload component supporting single-file (with preview) and multi-file (with drag-drop queue) modes.",
     dependencies: ["sonner", "react", "lucide-react", "cloudinary"],
     registryDependencies: ["input", "button"],
     files: [
       {
-        path: "/default/starter-kit-ui/image-input.tsx",
+        path: "/default/starter-kit-ui/image-upload.tsx",
         type: "registry:component",
       },
       {
@@ -35,52 +36,6 @@ export const ui: Registry["items"] = [
     files: [
       {
         path: "/default/starter-kit-ui/maps-embedder.tsx",
-        type: "registry:component",
-      },
-    ],
-  },
-  {
-    name: "image-upload-single",
-    type: "registry:component",
-    title: "Image Upload Single",
-    description:
-      "Single Image Upload component with preview and clear functionality.",
-    dependencies: ["react", "cloudinary", "sonner", "lucide-react"],
-    registryDependencies: ["card", "button"],
-    files: [
-      {
-        path: "/default/starter-kit-ui/image-upload-single.tsx",
-        type: "registry:component",
-      },
-      {
-        path: ".././app/api/upload/route.ts",
-        type: "registry:component",
-      },
-      {
-        path: ".././app/api/images/route.ts",
-        type: "registry:component",
-      },
-    ],
-  },
-  {
-    name: "image-upload-multiple",
-    type: "registry:component",
-    title: "Image Upload Multiple",
-    description:
-      "Multiple Image Upload component with preview and clear functionality & Queues.",
-    dependencies: ["react", "cloudinary", "sonner", "lucide-react"],
-    registryDependencies: ["card", "button"],
-    files: [
-      {
-        path: "/default/starter-kit-ui/image-upload-multiple.tsx",
-        type: "registry:component",
-      },
-      {
-        path: ".././app/api/upload/route.ts",
-        type: "registry:component",
-      },
-      {
-        path: ".././app/api/images/route.ts",
         type: "registry:component",
       },
     ],

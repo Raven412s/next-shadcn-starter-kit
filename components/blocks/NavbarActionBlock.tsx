@@ -1,4 +1,4 @@
-import GithubContributionButton from "../buttons/GithubContributionButton"
+import GithubContributionButton from "../examples/GithubContributionButton"
 import { ThemeToggleButton } from "../buttons/ThemeToggleButton"
 
 const NavbarActionBlock = ({onDocs}:{onDocs?:boolean}) => {

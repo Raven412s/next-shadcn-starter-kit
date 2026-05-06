@@ -5,8 +5,7 @@ import type { MDXComponents } from "mdx/types"
 import { ComponentSource } from "./component-source"
 import { ComponentsGrid } from "./component-grid"
 import { ImageInput } from "@/registry/default/starter-kit-ui/image-input"
-import  ImageUploadMultiple  from "@/registry/default/starter-kit-ui/image-upload-multiple"
-import  ImageUploadSingle  from "@/registry/default/starter-kit-ui/image-upload-single"
+
 import  MapsEmbedder  from "@/registry/default/starter-kit-ui/maps-embedder"
 import ComponentPreview from "./component-preview"
 import MultiSelect from "@/registry/default/starter-kit-ui/multi-select"
@@ -19,8 +18,6 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
         ComponentPreview,
         ImageInput,
         MapsEmbedder,
-        ImageUploadSingle,
-        ImageUploadMultiple,
         MultiSelect,
         ComponentsGrid,
         Tabs,

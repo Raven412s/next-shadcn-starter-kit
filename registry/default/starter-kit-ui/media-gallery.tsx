@@ -8,7 +8,8 @@ import { Copy, Eye, Image as ImageIcon, Trash2 } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 import { toast } from "sonner";
-import ImageUploadMultiple from "./image-upload-multiple";
+import { ImageUpload } from "./image-upload";
+
 
 
 
@@ -43,12 +44,13 @@ export default function MediaGallery({
 }: Props) {
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [imageToDelete, setImageToDelete] = useState<string>("");
-  
+
 
   return (
     <div>
       {/* New separated uploader */}
-      <ImageUploadMultiple
+      <ImageUpload
+        multiple
         label="Upload New Image(s)"
         onComplete={async () => {
           await fetchImages();
@@ -56,7 +58,7 @@ export default function MediaGallery({
         }}
       />
 
- 
+
 
       {isLoading ? (
         <div className="flex items-center justify-center h-64">
